@@ -1,12 +1,10 @@
 from datetime import datetime
-
-from pydantic import BaseModel
-
+from pydantic import BaseModel, Field
 
 class Todo(BaseModel):
     title: str
     description: str
     is_completed: bool = False
     is_deleted: bool = False
-    updated_at: int = int(datetime.timestamp(datetime.now()))
-    creation: int = int(datetime.timestamp(datetime.now()))
+    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    creation: datetime = Field(default_factory=datetime.utcnow)
