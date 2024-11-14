@@ -1,10 +1,11 @@
 from datetime import datetime
 from pydantic import BaseModel, Field
+from typing import List
 
-class Todo(BaseModel):
-    title: str
+class CodingResource(BaseModel):
+    id: int
     description: str
-    is_completed: bool = False
-    is_deleted: bool = False
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
-    creation: datetime = Field(default_factory=datetime.utcnow)
+    url: str
+    types: List[str]
+    topics: List[str]
+    levels: List[str]
