@@ -28,6 +28,7 @@ Ensure you have the following installed on your machine:
 - Python 3.8 or higher
 - MongoDB server
 - Bash (Linux/MacOS) or Command Prompt/PowerShell (Windows)
+- Poetry (Python dependency management tool)
 
 ### Steps
 
