@@ -1,25 +1,23 @@
 [tool.poetry]
-name = "Sample-API-Data-Scraper"
+name = "sample-api-data-scraper"
 version = "0.1.0"
 description = ""
-authors = ["Maksym Litvinenko <maksym.lithuanian@gmail.com>"]
+authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-fastapi = "^0.115.4"
-motor = "^3.6.0"
-pydantic = "^2.0"
+fastapi = "^0.115.5"
+pydantic = "^2.9.2"
 python-dotenv = "^1.0.1"
-scrapy = "^2.11.2"
+scrapy = "^2.12.0"
 pytest = "^8.3.3"
 httpx = "^0.27.2"
 pytest-mock = "^3.14.0"
 watchgod = "^0.8.2"
-
-
-[tool.poetry.group.dev.dependencies]
 uvicorn = "^0.32.0"
+pymongo = "^4.10.1"
+
 
 [build-system]
 requires = ["poetry-core"]
