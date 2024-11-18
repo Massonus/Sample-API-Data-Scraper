@@ -17,15 +17,15 @@ mongo_factory = mongo_factory()
 
 @app.get("/resources", response_model=List[CodingResource])
 async def get_resources(
-        page: int = Query(1, ge=1),
-        limit: int = Query(10, ge=1),
-        types: Optional[List[str]] = Query(None),
-        topics: Optional[List[str]] = Query(None),
-        levels: Optional[List[str]] = Query(None),
-        search: Optional[str] = None
+    page: int = Query(1, ge=1),
+    limit: int = Query(10, ge=1),
+    types: Optional[List[str]] = Query(None),
+    topics: Optional[List[str]] = Query(None),
+    levels: Optional[List[str]] = Query(None),
+    search: Optional[str] = None,
 ):
     skip = (page - 1) * limit
-    collection = mongo_factory.get('collection')
+    collection = mongo_factory.get("collection")
     query = {}
 
     if types:
@@ -51,9 +51,9 @@ async def get_resources(
 @app.post("/fetch")
 async def fetch_data():
     try:
-        if os.name == 'posix':
+        if os.name == "posix":
             subprocess.run(["bash", "run_scrapy.sh"], check=True)
-        elif os.name == 'nt':
+        elif os.name == "nt":
             subprocess.run(["cmd", "/c", "run_scrapy.bat"], check=True)
         else:
             raise HTTPException(status_code=500, detail="Unsupported OS")
@@ -66,4 +66,4 @@ async def fetch_data():
 app.include_router(router)
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", reload=True, reload_delay=0.5, port=8001)
+    uvicorn.run("main:app", reload=True, port=8001)
