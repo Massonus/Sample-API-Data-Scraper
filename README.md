@@ -151,7 +151,7 @@ To ensure the functionality works as expected, run the tests using `pytest`:
 ### Install test dependencies:
 
 ```bash
-pip install pytest pytest-mock
+poetry add pytest pytest-mock
 ```
 
 ### Run tests:
